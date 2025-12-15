@@ -1,0 +1,60 @@
+name:
+  type: str
+  help: What is the project name (used in pyproject.toml)?
+  placeholder: my-project
+  validator: "{% if not name %}Required field{% endif %}"
+
+description:
+  type: str
+  help: What is the project description?
+  placeholder: A brief description of the project
+  validator: "{% if not description %}Required field{% endif %}"
+
+title:
+  type: str
+  help: What is the HTML page title?
+  placeholder: My Project
+  validator: "{% if not title %}Required field{% endif %}"
+
+application_id:
+  type: str
+  help: What is the application ID (used in localStorage)?
+  placeholder: my-app-id
+  validator: "{% if not application_id %}Required field{% elif ' ' in application_id %}Application ID cannot contain spaces{% endif %}"
+
+site_name:
+  type: str
+  help: What is the MkDocs site name?
+  placeholder: My Project Documentation
+  validator: "{% if not site_name %}Required field{% endif %}"
+
+site_description:
+  type: str
+  help: What is the site description?
+  placeholder: Documentation for My Project
+  validator: "{% if not site_description %}Required field{% endif %}"
+
+site_url:
+  type: str
+  help: What is the site URL?
+  placeholder: https://example.github.io/my-project
+  validator: "{% if not site_url %}Required field{% elif not site_url.startswith('http') %}Must be a valid URL starting with http:// or https://{% endif %}"
+
+repo_name:
+  type: str
+  help: What is the repository name (e.g., username/repo)?
+  placeholder: username/my-project
+  validator: "{% if not repo_name %}Required field{% elif '/' not in repo_name %}Must be in format: username/repo{% endif %}"
+
+repo_url:
+  type: str
+  help: What is the repository URL?
+  placeholder: https://github.com/username/my-project
+  validator: "{% if not repo_url %}Required field{% elif not repo_url.startswith('http') %}Must be a valid URL starting with http:// or https://{% endif %}"
+
+_message_after_copy: |
+  Project {{ name }} created successfully!
+  Next steps:
+  1. Run 'uv sync --dev' to install dependencies
+  2. Update docs/index.md with your content
+  3. Run 'uv run mkdocs serve' to preview documentation locally
