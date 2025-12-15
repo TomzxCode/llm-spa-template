@@ -1,0 +1,13 @@
+[project]
+name = "{name}"
+version = "0.1.0"
+description = "{description}"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "mkdocs>=1.5.0",
+    "mkdocs-material[imaging]>=9.4.0",
+]
